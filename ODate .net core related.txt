@@ -1,0 +1,97 @@
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/odata-support-in-aspnet-web-api/
+https://medium.com/@abhi.bansal08/why-odata-and-how-to-enable-odata-in-c-net-core-application-1f13ad6ca3d1
+https://devblogs.microsoft.com/odata/experimenting-with-odata-in-asp-net-core-3-1/
+https://docs.microsoft.com/en-us/odata/webapi/netcore#e-configure-the-odata-endpoint
+https://help.nintex.com/en-us/insight/OData/HE_CON_ODATAQueryCheatSheet.htm
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
+https://github.com/OData/WebApi/issues/1521
+https://docs.microsoft.com/en-us/rest/api/storageservices/setting-the-odata-data-service-version-headers
+https://www.c-sharpcorner.com/article/paging-with-odata-and-Asp-Net-web-api/
+
+
+
+https://localhost:44302/api/v2/Products/
+https://localhost:44302/api/v2/Products/2
+https://localhost:44302/api/v2.0/Products?searchProduct=Phillips
+
+core 3.1
+
+https://localhost:44342/api/Product
+
+Query enabled for OData controller:
+
+working:
+
+https://localhost:44342/api/Product?$filter=ProductName eq 'Asus Printer'  
+https://localhost:44342/api/Product?$filter=startswith(ProductName, 'Asus')
+https://localhost:44342/api/Product?$orderby=ProductPrice
+
+not working:
+
+https://localhost:44342/api/Product?$select=ProductName,ProductPrice
+https://localhost:44342/api/Product?$count
+https://localhost:44342/api/Product?$top=2&$skip=2
+
+
+core 2.1.1 > OData 7.2.3
+
+https://localhost:44349/api/Customer
+
+https://localhost:44349/api/ProductNonOdata
+
+{
+	"ProductID":"8",
+	"ProductName":"Samsung Monitor",
+	"ProductPrice":"7500.00"
+}
+
+Query enabled for OData controller: https://localhost:44349/api/Products
+
+working:
+
+https://localhost:44349/api/Products?$filter=ProductName eq 'Asus Printer' 
+https://localhost:44349/api/Products?$filter=startswith(ProductName, 'Asus')
+https://localhost:44349/api/Products?$orderby=ProductPrice
+https://localhost:44349/api/Products?$select=ProductName,ProductPrice
+https://localhost:44349/api/Products?$top=2
+not working:$count and $metadata
+
+####################################################################################################################################################################
+
+https://stackoverflow.com/questions/58838970/getting-odata-count-in-asp-net-core-webapi
+
+new Sample Odata API: core 2.2
+
+non odata: https://localhost:44302/api/Products
+
+https://localhost:44302/odata/Accounts
+https://localhost:44302/odata/$metadata#Accounts
+https://localhost:44302/odata/Accounts?$count=true
+https://localhost:44302/odata/Accounts?$top=2
+https://localhost:44302/odata/Accounts?$orderby=Balance
+https://localhost:44302/odata/Accounts?$filter=startswith(Name, 'Aritra')&$select=Name,Balance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
